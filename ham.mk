@@ -172,7 +172,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     $(LOCAL_PATH)/keylayout/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl \
-    $(LOCAL_PATH)/keylayout/Goodix-CTP.kl:system/usr/keylayout/Goodix-CTP.kl
+    $(LOCAL_PATH)/keylayout/Goodix-CTP.kl:system/usr/keylayout/Goodix-CTP.kl \
+    $(LOCAL_PATH)/keylayout/msm8974-taiko-mtp-snd-card_Button_Jack.kl:system/usr/keylayout/msm8974-taiko-mtp-snd-card_Button_Jack.kl \
+    $(LOCAL_PATH)/keylayout/fpc1020tp.kl:system/usr/keylayout/fpc1020tp.kl
 
 # Keystore
 PRODUCT_PACKAGES += \
@@ -240,7 +242,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.timed.enable=true \
     ro.opengles.version=196608 \
     ro.qualcomm.bt.hci_transport=smd \
-    ro.telephony.default_network=9 \
+    ro.telephony.default_network=10 \
     ro.use_data_netmgrd=true \
     persist.data.netmgrd.qos.enable=true \
     persist.data.tcpackprio.enable=true \
