@@ -11,7 +11,10 @@ persist.radio.custom_ecc=1
 # enable multisim
 persist.radio.multisim.config=dsds
 
-# SdcardFS
+# bluetooth
+qcom.bluetooth.soc=smd
+
+# sdcardFS
 ro.sys.sdcardfs=true
 
 # sensors
