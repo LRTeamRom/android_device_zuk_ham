@@ -20,9 +20,6 @@ DEVICE_PATH := device/zuk/ham
 # TODO: shouldn't be here
 BOARD_VENDOR := zuk
 
-# Assertions
-TARGET_BOARD_INFO_FILE ?= $(DEVICE_PATH)/board-info.txt
-
 #Include path
 TARGET_SPECIFIC_HEADER_PATH += $(DEVICE_PATH)/include
 
@@ -53,7 +50,7 @@ BOARD_DTBTOOL_ARGS := -2
 TARGET_KERNEL_ARCH := arm
 BOARD_KERNEL_CMDLINE := console=tty60,115200,n8 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3b7 ehci-hcd.park=3 androidboot.bootdevice=msm_sdcc.1 vmalloc=480M
 TARGET_KERNEL_SOURCE := kernel/cyanogen/msm8974
-TARGET_KERNEL_CONFIG := radioactive_defconfig
+TARGET_KERNEL_CONFIG := lineageos_k9_defconfig
 
 # Enable DIAG on eng builds
 ifeq ($(TARGET_BUILD_VARIANT),eng)
@@ -175,7 +172,6 @@ TARGET_RIL_VARIANT := caf
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 
 # Releasetools
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_ham
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
 # Use HW crypto for ODE
@@ -187,13 +183,9 @@ PROTOBUF_SUPPORTED := true
 # ANT+ - TODO: Confirm this - TODO: Confirm this - TODO: Confirm this - TODO: Confirm this
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
-ifeq ($(HOST_OS),linux)
-  ifeq ($(call match-word-in-list,$(TARGET_BUILD_VARIANT),user),true)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-    endif
-  endif
-endif
+# Dexopt
+WITH_DEXPREOPT := true
+WITH_DEXPREOPT_BOOT_IMG_ONLY := false
 
 # inherit from the proprietary version
 ifneq ($(QCPATH),)
